@@ -1,0 +1,13 @@
+Extract prior authorization requirements from this insurance policy text for CPT code {cpt_code}.
+
+Policy text:
+{policy_text}
+
+Return ONLY a JSON object (no other text):
+{{
+  "prior_auth_required": true or false,
+  "documentation_required": ["item1", "item2", ...],
+  "medical_necessity_criteria": ["criteria1", "criteria2", ...],
+  "common_denial_reasons": ["reason1", "reason2", ...],
+  "source_section": "brief section name"
+}}

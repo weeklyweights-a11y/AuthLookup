@@ -1,0 +1,8 @@
+{
+  "resourceType": "CoverageEligibilityResponse",
+  "id": "{{id}}",
+  "status": "active",
+  "purpose": ["auth-requirements"],
+  "created": "{{created}}",
+  "item": []
+}

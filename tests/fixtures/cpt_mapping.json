@@ -1,0 +1,6 @@
+[
+  { "procedure": "MRI of the knee", "expected_cpt": "73721" },
+  { "procedure": "brain MRI with contrast", "expected_cpt": "70553" },
+  { "procedure": "MRI head neck without contrast", "expected_cpt": "70540" },
+  { "procedure": "MRI orbit face neck without contrast", "expected_cpt": "70540" }
+]

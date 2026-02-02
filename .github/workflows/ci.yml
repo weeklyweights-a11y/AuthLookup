@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Lint with ruff
+        run: ruff check src tests
+
+      - name: Type check with mypy
+        run: mypy src --ignore-missing-imports || true
+
+      - name: Run unit tests
+        run: pytest tests -v
+
+      - name: Build CMS cache and CPT from CMS (if data present)
+        run: |
+          if [ -d data/cms/current_article/csv ] && [ -d data/cms/current_lcd/csv ]; then
+            python scripts/build_cms_cache_from_bulk.py && python scripts/build_cpt_from_cms.py;
+          else
+            echo "CMS CSV dirs not present, skipping CMS/CPT build";
+          fi
+
+      - name: Validate CPT mapping
+        run: python scripts/validate_cpt_mapping.py

@@ -1,0 +1,10 @@
+Extract the medical procedure and insurance payer from the user's query.
+
+User query: "{query}"
+
+Return ONLY a JSON object with this exact structure (no other text):
+{{"procedure": "the procedure description", "payer": "the insurance/payer name"}}
+
+Examples:
+- "brain MRI with contrast, Blue Cross" -> {{"procedure": "brain MRI with contrast", "payer": "Blue Cross"}}
+- "I need prior auth for CT spine, Aetna" -> {{"procedure": "CT spine", "payer": "Aetna"}}

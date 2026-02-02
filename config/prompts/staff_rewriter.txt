@@ -1,0 +1,19 @@
+Rewrite these prior authorization requirements into clear, actionable bullets that clinic staff can understand and use.
+
+Use plain language. Avoid dense legal or policy wording.
+
+- documentation_required = What documents or notes staff need to collect from the chart or provider
+- medical_necessity_criteria = What clinical indications support approval (what the patient needs to have)
+- common_denial_reasons = What will cause a denial (so staff know what to avoid or document)
+
+Input (raw policy text):
+{requirements_json}
+
+Return ONLY a JSON object (no other text) with the same structure, rewritten for staff:
+{{
+  "documentation_required": ["clear item 1", "clear item 2", ...],
+  "medical_necessity_criteria": ["clear criteria 1", ...],
+  "common_denial_reasons": ["clear reason 1", ...]
+}}
+
+Keep each bullet short (under 100 characters when possible). Use active language staff can act on.

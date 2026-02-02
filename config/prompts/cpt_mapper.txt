@@ -1,0 +1,11 @@
+Map the procedure description to the most appropriate CPT code.
+
+Procedure: "{procedure}"
+
+Available CPT codes (code: description):
+{cpt_list}
+
+Return ONLY a JSON object (no other text):
+{{"code": "XXXXX", "description": "matching description", "confidence": "high|medium|low"}}
+
+If no good match exists, use confidence "low" and pick the closest option.

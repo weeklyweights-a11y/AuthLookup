@@ -1,0 +1,58 @@
+# AuthLookup Default Configuration
+
+paths:
+  project_root: "."
+  data_dir: "data"
+  cpt_file: "data/cpt/cpt_codes.json"
+  policies_raw: "data/policies/raw"
+  policies_parsed: "data/policies/parsed"
+  fhir_templates: "data/fhir_templates"
+  chroma_db: "chroma_db"
+  cms_cache: "data/cms"
+
+cms_api:
+  base_url: "https://api.coverage.cms.gov"
+  cache_path: "data/cms/articles_cache.json"
+  cache_max_age_hours: 168
+
+ollama:
+  model: "qwen2.5-coder:3b"  # Small model, good for CPU-only
+  base_url: "http://localhost:11434"
+  timeout: 60
+  retries: 2
+
+vector_store:
+  collection_name: "authlookup_policies"
+  chunk_size: 1000
+  chunk_overlap: 200
+  n_results: 5
+
+policy_sources:
+  Medicare:
+    type: cms_api
+  UnitedHealthcare:
+    type: vector_store
+    metadata_filter: { payer: "UnitedHealthcare" }
+  Aetna:
+    type: vector_store
+    metadata_filter: { payer: "Aetna" }
+  Anthem:
+    type: parsed_json
+    parsed_dir: "data/policies/parsed/anthem"
+
+payer_aliases:
+  medicare: Medicare
+  cms: Medicare
+  mac: Medicare
+  united: UnitedHealthcare
+  uhc: UnitedHealthcare
+  unitedhealthcare: UnitedHealthcare
+  aetna: Aetna
+  anthem: Anthem
+  blue_cross: Anthem
+  cigna: Cigna
+  humana: Humana
+
+policy_pdfs:
+  UnitedHealthcare:
+    - "https://uhcprovider.com/content/dam/provider/docs/public/prior-auth/radiology/COMM-Exchange-Rad-Card-Guidelines-10-2025.pdf"
