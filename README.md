@@ -4,7 +4,7 @@
 
 ## Demo
 
-**[Watch Demo](docs/DEMO.mp4)** — Short video walkthrough of AuthLookup.
+<video src="https://raw.githubusercontent.com/weeklyweights-a11y/AuthLookup/master/docs/DEMO.mp4" controls width="640" title="AuthLookup Demo">Your browser does not support the video tag.</video>
 
 ---
 
