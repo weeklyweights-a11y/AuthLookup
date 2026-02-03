@@ -2,6 +2,10 @@
 
 **Prior Authorization Lookup Tool** — Turn natural language into clear PA requirements in seconds, not hours.
 
+## Demo
+
+**[Watch Demo](docs/DEMO.mp4)** — Short video walkthrough of AuthLookup.
+
 ---
 
 ## The Problem
