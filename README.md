@@ -4,7 +4,9 @@
 
 ## Demo
 
-<video src="https://raw.githubusercontent.com/weeklyweights-a11y/AuthLookup/master/docs/DEMO.mp4" controls width="640" title="AuthLookup Demo">Your browser does not support the video tag.</video>
+
+https://github.com/user-attachments/assets/b7602efb-bef2-4919-9f79-8c5d8f0db421
+
 
 ---
 
